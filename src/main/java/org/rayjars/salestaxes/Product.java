@@ -1,4 +1,4 @@
-package com.teksystem.salestaxes;
+package org.rayjars.salestaxes;
 
 
 public class Product {

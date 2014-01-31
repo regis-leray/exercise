@@ -1,4 +1,4 @@
-package com.teksystem.salestaxes;
+package org.rayjars.salestaxes;
 
 public class ImportProduct extends Product {
 

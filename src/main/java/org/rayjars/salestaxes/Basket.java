@@ -1,4 +1,4 @@
-package com.teksystem.salestaxes;
+package org.rayjars.salestaxes;
 
 import java.util.ArrayList;
 import java.util.List;

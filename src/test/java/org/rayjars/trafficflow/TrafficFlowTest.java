@@ -1,10 +1,11 @@
-package com.teksystem.trafficflow;
+package org.rayjars.trafficflow;
 
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.rayjars.trafficflow.TrafficFlow;
 
 import java.util.Arrays;
 import java.util.List;
