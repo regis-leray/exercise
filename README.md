@@ -1,6 +1,5 @@
 
-Traffic Flow
-============
+#Traffic Flow
 
 The Shallow Alto city council has organized a special committee to review the traffic situation in the city. Despite the fact that there is nothing whatsoever to do in the city, citizens still write
 complaints about the amount of time it takes them to get from one unexciting location to the next.
@@ -31,13 +30,13 @@ Output
 ```
 
 
-##Constraints
+### Constraints
 
 *speed will be either 5, 10, 15, 20, 25, or 30.
 *lights will contain between 1 and 50 elements, inclusive.
 *each element of lights will be an integer between 10 and 60, inclusive.
 
-##Examples
+### Examples
 
 ```
 0)
@@ -108,8 +107,7 @@ Returns: 630
 Returns: 252
 ```
 
-Basic Sales
-===========
+#Basic Sales
 
 Basic sales tax is applicable at a rate of 10% on all goods, except books, food, and medical products that are exempt. Import duty is an additional sales tax applicable on all imported
 goods at a rate of 5%, with no exemptions. When I purchase items I receive a receipt which lists the name of all the items and their price
