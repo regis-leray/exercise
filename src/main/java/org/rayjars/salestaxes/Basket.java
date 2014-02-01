@@ -51,7 +51,7 @@ public class Basket implements Formatter {
         visitor.visit(index, this);
 
         for(Product p :getProducts()){
-            p.accept(index, visitor);
+            p.accept(null, visitor);
         }
 
         visitor.visit(this);
