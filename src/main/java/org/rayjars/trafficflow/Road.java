@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Road {
-
-    private Integer distance = 150;
-
-    List<Light> ligths = null;
+    private List<Light> ligths = null;
 
     public Road(Integer[] paramlights){
         ligths = new ArrayList<Light>(paramlights.length);

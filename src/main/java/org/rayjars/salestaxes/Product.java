@@ -1,23 +1,25 @@
 package org.rayjars.salestaxes;
 
 
-public class Product {
-    public static final Float DEFAULT_TAX = 10f;
+import org.rayjars.salestaxes.calculator.*;
+import org.rayjars.salestaxes.formater.Formatter;
+import org.rayjars.salestaxes.formater.FormatterVisitor;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Product implements Formatter {
 
     private String name = "";
 
-    private Float price = 0f;
+    private final BigDecimal price;
 
-    private Float tax = 0f;
+    private final TaxCalculator calculator;
 
-    private Integer quantity = 1;
-
-    public Product() {
-        this(DEFAULT_TAX);
-    }
-
-    public Product(Float tax) {
-        this.tax = tax;
+    public Product(BigDecimal price, TaxCalculator calculator) {
+        this.price = price;
+        this.calculator = calculator;
     }
 
     public String getName() {
@@ -29,55 +31,64 @@ public class Product {
         return this;
     }
 
-    public Float getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public Product setPrice(Float price) {
-        this.price = price;
-        return this;
+    public BigDecimal calculateTax(){
+        return calculator.calculateTax(getPrice());
     }
 
-    public Product setQuantity(Integer quantity) {
-        this.quantity = quantity;
-        return this;
+    public BigDecimal sellingPrice(){
+        return price.add(calculateTax());
     }
 
-    private Integer getQuantity() {
-        return quantity;
+    @Override
+    public void accept(Integer index, FormatterVisitor visitor) {
+        visitor.visit(this);
     }
 
-    public Float getTax(){
-          return tax;
+    public static class Builder {
+
+        private final String name;
+        private final BigDecimal originalPrice;
+        private final List<TaxCalculator> taxCalculators = new ArrayList<TaxCalculator>();
+
+        public Builder(final String name, final BigDecimal originalPrice) {
+            this.name = name;
+            this.originalPrice = originalPrice;
+        }
+
+        public Builder(final String name, final String originalPrice) throws NumberFormatException {
+            this(name, new BigDecimal(originalPrice));
+        }
+
+        public Builder addAllTaxCalculators() {
+            addSalesTaxCalculator();
+            addImportTaxCalculator();
+            return this;
+        }
+
+        public Builder addNotTaxCalculator(){
+            return addTaxCalculator(new NoTaxCalculator());
+        }
+
+        public Builder addImportTaxCalculator() {
+            return addTaxCalculator(new ImportTaxCalculator());
+        }
+
+        public Builder addSalesTaxCalculator() {
+            return addTaxCalculator(new SalesTaxCalculator());
+        }
+
+        public Builder addTaxCalculator(final TaxCalculator taxCalculator) {
+            this.taxCalculators.add(taxCalculator);
+            return this;
+        }
+
+        public Product build() {
+            return new Product(originalPrice, new ChainedTaxCalculator(taxCalculators)).setName(name);
+        }
     }
-
-    public Float calculateTax(){
-        return ((getPrice() * getQuantity()) * getTax()) / 100;
-    }
-
-    public Float calculatePriceWithTax(){
-        return (getPrice() * getQuantity()) + calculateTax();
-    }
-
-    public String toString(){
-        return new StringBuilder()
-                .append(getQuantity())
-                .append(" ")
-                .append(getName())
-                .append(" at ")
-                .append(getPrice().toString()).toString();
-    }
-
-    public String toShortString(){
-        return new StringBuilder()
-                .append(getQuantity())
-                .append(" ")
-                .append(getName())
-                .append(" : ")
-                .append(getPrice().toString()).toString();
-    }
-
-
-
 
 }
