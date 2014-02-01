@@ -31,15 +31,14 @@ Output
 ```
 
 
-Constraints
------------
+##Constraints
 
 *speed will be either 5, 10, 15, 20, 25, or 30.
 *lights will contain between 1 and 50 elements, inclusive.
 *each element of lights will be an integer between 10 and 60, inclusive.
 
-Examples
----------
+##Examples
+
 ```
 0)
 {10,10,10}
