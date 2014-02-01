@@ -1,7 +1,7 @@
 package org.rayjars.trafficflow;
 
 
-public class Car {
+public class Car implements ObjectValidator {
 
     private Integer speed = 0;
 
@@ -20,11 +20,11 @@ public class Car {
         this.speed = speed;
     }
 
-    public Car validate(){
+    public void validate() throws IllegalArgumentException{
           validateModulo5();
           validateHighSpeed();
           validateSlowSpeed();
-          return this;
+
     }
 
     public void validateHighSpeed(){

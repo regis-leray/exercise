@@ -4,7 +4,7 @@ package org.rayjars.trafficflow;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Road {
+public class Road implements ObjectValidator {
     private List<Light> ligths = null;
 
     public Road(Integer[] paramlights){
@@ -19,7 +19,7 @@ public class Road {
         return ligths;
     }
 
-    public Road validate(){
+    public void validate() throws IllegalArgumentException{
        validateNotEnoughLigths();
        validateTooMuchLigths();
 
@@ -27,7 +27,7 @@ public class Road {
            light.validate();
        }
 
-        return this;
+
     }
 
     protected void validateTooMuchLigths() {

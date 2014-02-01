@@ -39,7 +39,7 @@ public class TrafficFlowTest {
 
 
     @Test
-    public void shouldSpeedAModulo5AndNotHigherThan30(){
+    public void shouldSpeedAModulo5AndNotHigherThan30() throws Exception {
          for(Integer[] data : data()){
             trafficFlow.simulate(new Integer[]{data[0]}, data[1]);
          }

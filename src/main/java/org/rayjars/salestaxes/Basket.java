@@ -12,8 +12,9 @@ public class Basket implements Formatter {
 
     List<Product> products = null;
 
-    public void addProduct(Product product) {
+    public Basket addProduct(Product product) {
         this.getProducts().add(product);
+        return this;
     }
 
     public List<Product> getProducts() {

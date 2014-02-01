@@ -17,7 +17,7 @@ public class Product implements Formatter {
 
     private final TaxCalculator calculator;
 
-    public Product(BigDecimal price, TaxCalculator calculator) {
+    private Product(BigDecimal price, TaxCalculator calculator) {
         this.price = price;
         this.calculator = calculator;
     }

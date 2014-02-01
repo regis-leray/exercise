@@ -1,7 +1,7 @@
 package org.rayjars.trafficflow;
 
 
-public class Light {
+public class Light implements ObjectValidator {
 
     private Boolean state = Boolean.TRUE;
 

@@ -24,9 +24,18 @@ public class TrafficFlow {
     }
 
     public Integer simulate(Integer[] lights, Integer speed) {
-        Car car = new Car(speed).validate();
-        Road road = new Road(lights).validate();
+        Car car = new Car(speed);
+        Road road = new Road(lights);
+
+        runValidation(car, road);
+
         return simulate(road, car);
+    }
+
+    private void runValidation(ObjectValidator... validators){
+        for(ObjectValidator validator : validators){
+            validator.validate();
+        }
     }
 
     private Integer simulate(Road road, Car car) {

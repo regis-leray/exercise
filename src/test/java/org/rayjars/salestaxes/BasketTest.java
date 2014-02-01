@@ -58,7 +58,6 @@ public class BasketTest {
 
     @Test
     public void print(){
-
         basket.addProduct(new Product.Builder("imported bottle of perfume", "27.99").addAllTaxCalculators().build());
         basket.addProduct(new Product.Builder("bottle of perfume", "18.99").addSalesTaxCalculator().build());
         basket.addProduct(new Product.Builder("packet of headache pills", "9.75").addNotTaxCalculator().build());
