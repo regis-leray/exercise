@@ -4,6 +4,10 @@ import org.junit.Test;
 import org.rayjars.salestaxes.Basket;
 import org.rayjars.salestaxes.Product;
 
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 /**
  * InputFormatterVisitorTest
  * <p/>
@@ -19,12 +23,16 @@ public class InputFormatterVisitorTest {
     public void test(){
         Basket basket = new Basket()
                 .addProduct(new Product.Builder("Banana", "1.42").build())
-                .addProduct(new Product.Builder("Import shoes", "10.56").addAllTaxCalculators().build())
+                .addProduct(new Product.Builder("Import shoes", "30.44").addAllTaxCalculators().build())
                 .addProduct(new Product.Builder("Book", "10.56").addSalesTaxCalculator().build());
 
         basket.accept(1, formatterVisitor);
 
-        System.out.println(formatterVisitor.format());
-
+        assertThat(formatterVisitor.format(), is(
+        "INPUT :\n"+
+        "Input 1:\n"+
+        "1 Banana at 1.42\n"+
+        "1 Import shoes at 30.44\n"+
+        "1 Book at 10.56\n"));
     }
 }

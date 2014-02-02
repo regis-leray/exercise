@@ -14,7 +14,7 @@ public class OutputFormatterVisitor implements FormatterVisitor {
 
     @Override
     public void visit(Integer index, Basket basket){
-        builder.append("Output "+index).append("\n");
+        builder.append("Output "+index).append(":\n");
     }
 
     @Override
@@ -28,7 +28,7 @@ public class OutputFormatterVisitor implements FormatterVisitor {
         builder.append("1")
                 .append(" ")
                 .append(product.getName())
-                .append(" : ")
+                .append(": ")
                 .append(product.sellingPrice())
                 .append("\n");
     }
