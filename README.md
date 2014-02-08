@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/regis-leray/exercise.png?branch=master)](https://travis-ci.org/regis-leray/exercise)
+
+
 
 #Traffic Flow
 
