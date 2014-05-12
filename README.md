@@ -44,7 +44,7 @@ Output
 ```
 0)
 {10,10,10}
-0
+30
 Returns: 30
 The car reaches the first traffic light at time = 5, so the light is still green and the car drives on
 through.
