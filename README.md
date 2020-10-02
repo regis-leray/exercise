@@ -2,7 +2,7 @@
 
 
 
-#Traffic Flow
+# Traffic Flow
 
 The Shallow Alto city council has organized a special committee to review the traffic situation in the city. Despite the fact that there is nothing whatsoever to do in the city, citizens still write
 complaints about the amount of time it takes them to get from one unexciting location to the next.
@@ -110,7 +110,7 @@ Returns: 630
 Returns: 252
 ```
 
-#Basic Sales
+# Basic Sales
 
 Basic sales tax is applicable at a rate of 10% on all goods, except books, food, and medical products that are exempt. Import duty is an additional sales tax applicable on all imported
 goods at a rate of 5%, with no exemptions. When I purchase items I receive a receipt which lists the name of all the items and their price
